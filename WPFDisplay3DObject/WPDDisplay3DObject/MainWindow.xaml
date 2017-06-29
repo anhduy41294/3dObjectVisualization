@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPDDisplay3DObject"
         xmlns:helix="http://helix-toolkit.org/wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="3D Object Display" Height="350" Width="525">
     <Grid>
         <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Grid.RowSpan="2" >
             <!-- Remember to add light to the scene -->
