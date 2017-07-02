@@ -1,0 +1,49 @@
+﻿<Window x:Class="ThreeDObjectViewer.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="Info" 
+        WindowStartupLocation="CenterOwner"
+        Height="500" Width="650">
+    <Grid>
+        <TabControl Name="TabControl1" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Name="StatisticsTabItem" Header="Model info">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="StatisticsTextBox" Grid.Row="0" FontFamily="Courier New" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+                    <TextBlock Grid.Row="1" FontSize="11" TextWrapping="Wrap" Background="LightGray" Text="Model info text is get with Ab3d.Utilities.Dumper.GetModelInfoString(Model3D) method from Ab3d.PowerToys library."/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="DumpTabItem" Header="Dump mesh">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="181*"/>
+                        <ColumnDefinition Width="455*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="DumpTextBox" Grid.Row="0" FontFamily="Courier New" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="2" Margin="0,0,0,30.04" Grid.RowSpan="3"/>
+                    <CheckBox Name="LimitDumpCheckBox" Grid.Row="2" IsChecked="True" Checked="LimitDumpCheckBox_Checked" Unchecked="LimitDumpCheckBox_Checked" Grid.ColumnSpan="2" Margin="0,28.48,0,15.04">Show only first 300 lines</CheckBox>
+                    <TextBlock Grid.Row="2" FontSize="11" TextWrapping="Wrap" Background="LightGray" Text="MeshGeometry3D is dumped with Ab3d.Utilities.Dumper.GetDumpString(MeshGeometry3D) method from Ab3d.PowerToys library." Grid.ColumnSpan="2" Margin="0,43.48,0,0.04"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="HierarchyTabItem" Header="Hierarchy">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="HierarchyTextBox" Grid.Row="0" FontFamily="Courier New" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
+
+    

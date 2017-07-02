@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="ThreeDObjectViewer.ElementsTreeViewPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid MinWidth="80">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="NoFileTextBlock" Grid.Row="0" TextWrapping="Wrap">
+                <Run>No objects read.</Run>
+                <LineBreak/>
+                <LineBreak/>
+                <Run>Import 3D models with clicking on &quot;Open file&quot; button or drag and drop the model file from Windows explorer into the application.</Run>
+        </TextBlock>
+        <StackPanel Name="ButtonsStackPanel" Grid.Row="1" Visibility="Collapsed" Orientation="Horizontal" Margin="0 0 0 3">
+            <Button Name="ClearSelectionButton" IsEnabled="False" ToolTip="Deselects the currently selected object and removes the selection rectangle." Click="ClearSelectionButton_Click">Deselect</Button>
+            <Button Name="CenterButton" IsEnabled="False" Margin="5 0 0 0" ToolTip="Sets the camera to center the currently selected object." Click="CenterButton_Click">Center</Button>
+            <Button Name="InfoButton" IsEnabled="False" Margin="5 0 0 0" ToolTip="Shows information about the currently selected object or object's group." Click="InfoButton_Click">Info</Button>
+        </StackPanel>
+        <StackPanel Name="MoveObjectsPanel" Grid.Row="2" Orientation="Horizontal" IsEnabled="False" Visibility="Collapsed"  Margin="0 0 0 3">
+            <TextBlock VerticalAlignment="Center" Text="Move:"/>
+            <Button Name="MoveUpButton" Margin="5 0 0 0" Width="50" Click="MoveUpButton_Click">Up</Button>
+            <Button Name="MoveDownButton" Margin="5 0 0 0" Width="50" Click="MoveDownButton_Click">Down</Button>
+            <Button Name="MoveToLastButton" Margin="5 0 0 0" Width="50" Click="MoveToLastButton_Click">To last</Button>
+        </StackPanel>
+        <ScrollViewer Name="TreeViewScrollViewer" Grid.Row="3" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+            <TreeView Name="ElementsTreeView" SelectedItemChanged="TreeViewItemSelected"/>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
